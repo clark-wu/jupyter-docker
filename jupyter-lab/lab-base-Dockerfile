@@ -1,0 +1,12 @@
+FROM clarkwu/miniconda3:latest
+
+RUN conda install -c conda-forge jupyterlab && \
+    conda install -c conda-forge nodejs && \
+    jupyter lab --generate-config && \
+    sed -i '/#c.NotebookApp.allow_root/cc.NotebookApp.allow_root = True' /root/.jupyter/jupyter_notebook_config.py && \
+    sed -i "/#c.NotebookApp.ip/cc.NotebookApp.ip = '0.0.0.0'" /root/.jupyter/jupyter_notebook_config.py && \
+    sed -i "/#c.NotebookApp.open_browser/cc.NotebookApp.open_browser = False" /root/.jupyter/jupyter_notebook_config.py && \
+    sed -i "/#c.NotebookApp.password/cc.NotebookApp.password = u'sha1:16eedb72e5c7:e645e9f42886d06aecfadce963856577b728a7f2'" /root/.jupyter/jupyter_notebook_config.py && \
+    sed -i "/#c.NotebookApp.port/cc.NotebookApp.port = 8888" /root/.jupyter/jupyter_notebook_config.py && \
+
+CMD ["jupyter","lab","--allow-root"]

@@ -1,0 +1,2 @@
+script:
+  cd jupyter-lab && ./build.sh

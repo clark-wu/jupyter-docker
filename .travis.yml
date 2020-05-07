@@ -1,4 +1,4 @@
 before_script:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
 script:
-  cd jupyter-lab && ./build.sh
+  cd jupyter-lab && chmod +x * && ./build.sh

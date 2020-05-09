@@ -7,6 +7,6 @@ RUN conda install -c conda-forge jupyterlab && \
     sed -i "/#c.NotebookApp.ip/cc.NotebookApp.ip = '0.0.0.0'" /root/.jupyter/jupyter_notebook_config.py && \
     sed -i "/#c.NotebookApp.open_browser/cc.NotebookApp.open_browser = False" /root/.jupyter/jupyter_notebook_config.py && \
     sed -i "/#c.NotebookApp.password/cc.NotebookApp.password = u'sha1:16eedb72e5c7:e645e9f42886d06aecfadce963856577b728a7f2'" /root/.jupyter/jupyter_notebook_config.py && \
-    sed -i "/#c.NotebookApp.port/cc.NotebookApp.port = 8888" /root/.jupyter/jupyter_notebook_config.py && \
+    sed -i "/#c.NotebookApp.port/cc.NotebookApp.port = 8888" /root/.jupyter/jupyter_notebook_config.py
 
 CMD ["jupyter","lab","--allow-root"]
